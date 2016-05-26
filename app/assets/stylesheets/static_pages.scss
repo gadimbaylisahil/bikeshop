@@ -1,3 +1,59 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*NAVIGATION PAGE STYLES START*/
+
+.navbar-custom {
+	border: 0;
+	border-radius: 0;
+	margin: 0;
+}
+
+.navbar-custom {
+	background: rgba(0, 0, 0, 0.9);
+	padding: 0;
+}
+
+.navbar-custom .navbar-nav {
+	margin: 1px -15px 0;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav > li > a {
+	font-size: 15px;
+	letter-spacing: 1px;
+	color: #fff;
+}
+
+.navbar-custom .navbar-brand {
+	font-family: 'Dancing Script', cursive;
+	font-weight: 700;
+	font-size: 32px;
+}
+
+.navbar-custom .nav .open > a,
+.navbar-custom .nav li a:focus {
+	background: none;
+	outline: 0;
+	color: #fff;
+}
+
+.navbar-custom li > a {
+	position: relative;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .navbar-nav > li.active a {
+	background: none;
+	outline: 0;
+	color: #F5D76E;
+}
+
+.navbar-custom .navbar-toggle .icon-bar {
+	background: #fff;
+}
+
+/* Margin top pages */
+#index, #contact, #orders, #shop {
+	margin-top: 50px;
+}
