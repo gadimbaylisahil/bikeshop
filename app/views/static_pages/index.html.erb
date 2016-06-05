@@ -15,7 +15,7 @@
 					<div class="item <%= "active" if product == @products.first %>">
 						<%= image_tag(product.image_url, :class => "img-responsive") %>
 						<div class="carousel-caption">
-							<%= product.name %>
+							<p><%= product.name %></p>
 						</div>
 					</div>
 				<% end %>
@@ -39,4 +39,8 @@
 			</div><!--carousel controls ending-->
 
 		</div><!-- craousel ROW ending-->
+
+	<div class="information">
+		<header>Welcome to BikyLand!</header>
+	</div>
 </section>

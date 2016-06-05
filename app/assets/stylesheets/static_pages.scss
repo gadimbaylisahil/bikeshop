@@ -54,6 +54,20 @@
 }
 
 /* Margin top pages */
-#index, #contact, #orders, #shop {
+#contact, #orders, #shop {
 	margin-top: 50px;
+}
+#index {
+	text-align: center;
+}
+
+/* Index Page Styles */
+header{
+	text-align: center;
+	weight: 10px;
+	font-size: 50px;
+}
+.carousel-caption p{
+	color: red;
+	font-size: 25px;
 }
