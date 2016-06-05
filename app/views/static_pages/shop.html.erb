@@ -1,3 +1,10 @@
 <section id="shop">
-	
+	<% @products.each do |product| %>
+	<div class="col-md-3 col-sm-6 col-lg-2 products">
+		<h1> <%= product.name %> </h1>	
+		<%= image_tag(product.image_url, :class => "img-responsive") %>
+		<p> <%= product.decription %> </p>
+		<strong> <%= product.price %> $</strong>
+	</div>
+	<% end %>
 </section>
