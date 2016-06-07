@@ -29,11 +29,10 @@
 			<!-- navigation links -->
 			<div class="collapse navbar-collapse" id="target-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="page-scroll"><a href="../static_pages/index">Home</a></li>
-					<li class="page-scroll"><a href="../static_pages/shop">Shop</a></li>
-					<li class="page-scroll"><a href="../static_pages/orders">Orders</a></li>
-					<li class="page-scroll"><a href="../static_pages/contact">Contact</a></li>
-
+					<li> <%= link_to 'Home', '/static_pages/index', :class => 'page-scroll' %> </li>
+					<li> <%= link_to 'Shop', '/static_pages/shop', :class => 'page-scroll' %></li>
+					<li> <%= link_to 'Orders', '/static_pages/orders', :class => 'page-scroll' %></li>
+					<li> <%= link_to 'Contact', '/static_pages/contact', :class => 'page-scroll' %></li>
 				</ul>
 			</div><!-- navlinks  -->
 		</div><!-- nav container -->
