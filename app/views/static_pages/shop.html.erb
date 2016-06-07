@@ -1,4 +1,6 @@
 <section id="shop">
+
+	<a class="col-md-12 col-sm-12 col-lg-12" href="../products">Edit Products</a>
 	<% @products.each do |product| %>
 	<div class="col-md-3 col-sm-6 col-lg-2 products">
 		<h1> <%= product.name %> </h1>	
@@ -7,4 +9,5 @@
 		<strong> <%= product.price %> $</strong>
 	</div>
 	<% end %>
+	
 </section>
