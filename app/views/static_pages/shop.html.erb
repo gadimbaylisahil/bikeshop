@@ -1,13 +1,14 @@
 <section id="shop">
-
-	<a class="col-md-12 col-sm-12 col-lg-12" href="../products">Edit Products</a>
-	<% @products.each do |product| %>
-	<div class="col-md-3 col-sm-6 col-lg-2 products">
-		<h1> <%= product.name %> </h1>	
-		<%= image_tag(product.image_url, :class => "img-responsive") %>
-		<p> <%= product.decription %> </p>
-		<strong> <%= product.price %> $</strong>
+	<div class="row">
+		<a class="col-md-12 col-sm-12 col-lg-12" href="../products">Edit Products</a>
+		<% @products.each do |product| %>
+		<div class="col-md-3 col-sm-6 col-lg-2 products">
+			<h1> <%= product.name %> </h1>	
+			<%= image_tag(product.image_url, :class => "img-responsive") %>
+			<p> <%= product.decription %> </p>
+			<strong> <%= product.price %> $</strong>
+		</div>
+		<% end %>
+		<%= link_to 'Proceed to checkout', "/static_pages/orders", :class => 'col-md-12 col-sm-12 col-lg-12 checkout' %>
 	</div>
-	<% end %>
-	<%= link_to 'Proceed to checkout', "/static_pages/orders", :class => 'col-md-12 col-sm-12 col-lg-12' %>
 </section>

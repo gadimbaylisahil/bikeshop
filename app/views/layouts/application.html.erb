@@ -4,11 +4,15 @@
   <title>Bikeshop</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
   
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="footer, address, phone, icons" />
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -39,6 +43,27 @@
 	</nav><!-- navigation ENDS -->
 
 <%= yield %>
+
+	<footer class="footer-distributed">
+
+			<div class="footer-right">
+				<a href="#"><i class="fa fa-facebook"></i></a>
+				<a href="#"><i class="fa fa-twitter"></i></a>
+				<a href="#"><i class="fa fa-instagram"></i></a>
+				<a href="#"><i class="fa fa-tumblr"></i></a>
+			</div><!-- Footer Right End -->
+
+			<div class="footer-left">
+				<p class="footer-links">
+					<a> <%= link_to 'Home', '/static_pages/index' %> </a>
+					<a> <%= link_to 'Shop', '/static_pages/shop' %></a>
+					<a> <%= link_to 'Orders', '/static_pages/orders' %></a>
+					<a> <%= link_to 'Contact', '/static_pages/contact' %></a>
+				</p>
+
+				<p>Sahil Gadimbayli &copy; 2016</p>
+			</div><!-- Footer Left End -->
+	</footer>
 
 </body>
 </html>
