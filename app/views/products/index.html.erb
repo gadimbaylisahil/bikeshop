@@ -21,7 +21,15 @@
           <td><%= product.name %></td>
           <td><%= product.decription %></td>
           <td><%= product.image_url %></td>
-          <td><%= product.brand_new %></td>
+
+          <% if (product.brand_new == true) %>
+            <td><%= "Yes" %></td>
+          <% end %>
+          
+          <% if (product.brand_new == false) %>
+            <td><%= "No" %></td>
+          <% end %>
+          
           <td><%= product.price %></td>
           <td><%= product.colour %></td>
           <td><%= link_to 'Show', product %></td>

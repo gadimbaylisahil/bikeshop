@@ -1,4 +1,4 @@
-<%= form_for(@product) do |f| %>
+<%= form_for @product, :html => {:class => "edit_form mainform"} do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -10,34 +10,38 @@
       </ul>
     </div>
   <% end %>
+ 
+  <div class="field form-group fg">
+    <%= f.label :name , "Product Name", :class => "edit_label" %><br>
+    <%= f.text_field :name, :class => "edit_entry" %>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :decription %><br>
-    <%= f.text_area :decription %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :brand_new %><br>
-    <%= f.check_box :brand_new %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
+  <div class="field form-group fg">
+    <%= f.label :decription, "Product Description", :class => "edit_label" %><br>
+    <%= f.text_area :decription, :class => "edit_entry" %>
   </div>
   
-  <div class="field">
-    <%= f.label :colour %><br>
-    <%= f.text_field :colour %>
+  <div class="field form-group fg">
+    <%= f.label :image_url, "Product Image Address", :class => "edit_label" %><br>
+    <%= f.text_field :image_url, :class => "edit_entry" %>
+  </div>
+  
+  <div class="field form-group fg">
+    <%= f.label :brand_new, "Brand New?", :class => "edit_label" %><br>
+    <%= f.check_box :brand_new, :class => "edit_entry" %>
+  </div>
+  
+  <div class="field form-group fg">
+    <%= f.label :price, "Product Price", :class => "edit_label" %><br>
+    <%= f.number_field :price, :class => "edit_entry" %>
+  </div>
+  
+  <div class="field form-group fg">
+    <%= f.label :colour, "Product Color", :class => "edit_label" %><br>
+    <%= f.text_field :colour, :class => "edit_entry" %>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "edit_submit" %>
   </div>
 <% end %>
