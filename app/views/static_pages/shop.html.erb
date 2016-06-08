@@ -1,6 +1,6 @@
 <section id="shop">
 	<div class="row">
-		<a class="col-md-12 col-sm-12 col-lg-12" href="../products">Edit Products</a>
+		<%= link_to 'Edit Products', "/products", :class => 'col-md-12 col-sm-12 col-lg-12 edit_products' %>
 		<% @products.each do |product| %>
 		<div class="col-md-3 col-sm-6 col-lg-2 products">
 			<h1> <%= product.name %> </h1>	

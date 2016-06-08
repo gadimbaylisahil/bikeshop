@@ -26,6 +26,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="../static_pages/index">Bike Shop</a>
 			</div> <!-- navbar header -->
@@ -37,6 +38,12 @@
 					<li> <%= link_to 'Shop', '/static_pages/shop', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Orders', '/static_pages/orders', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Contact', '/static_pages/contact', :class => 'page-scroll' %></li>
+					<li > 
+					<%= form_tag("/products", method: "get" ) do %>
+						<%= text_field_tag :q, "", class: 'search_text' %>
+						<%= submit_tag("Search", :class => "search_button") %>
+					<% end %>
+					</li>
 				</ul>
 			</div><!-- navlinks  -->
 		</div><!-- nav container -->

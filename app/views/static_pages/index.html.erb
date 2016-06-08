@@ -1,7 +1,7 @@
 <section id="index">
 	<div class="row">
 			<div id="about-carousel" class="carousel slide" data-ride="carousel">
-
+			
 				<!--indicators-->
 				<ol class="carousel-indicators">
 					<li data-target="#about-carousel" data-slide-to="0" class="active"></li>
@@ -14,9 +14,6 @@
 				<% @products.each do |product| %>
 					<div class="item <%= "active" if product == @products.first %>">
 						<%= image_tag(product.image_url) %>
-						<div class="carousel-caption">
-							<p><%= product.name %></p>
-						</div>
 					</div>
 				<% end %>
 				</div><!--carousel wrapper ending -->
