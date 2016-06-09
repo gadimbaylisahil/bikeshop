@@ -1,29 +1,33 @@
 <section id="contact">
 	<div class="row">	
+	
 		<address>
 			BikeShop<br>
 			Carrer de Bailen 200<br>
 			Barcelona, <abbr title="Catalunya">Cat</abbr> 08037 Spain
 		</address>
 
-		<form>
-			<div class="form-group col-lg-6 col-md-6 col-xs-12">
-				<!-- Name -->
-				<label for="name" id="input-form">Name:</label>
-				<input class="form-control" required="required" type="text" id="name" maxlength="30"></input>
-				<!-- Phone -->
-				<label for="phone">Phone:</label>
-				<input class="form-control" id="phone" type="number"></input>
-				<!-- Email -->
-				<label for="email">Email address:</label>
-				<input title="" class="form-control" required="required" type="email" id="email"></input>
-				<!-- Message -->
-				<label for="message"> Message: </label>
-				<textarea placeholder="Enter your message here!" class="form-control message-box" id="message" style="resize:none" cols="40" rows="5"></textarea>
-				<p class="charCount"></p>
-				<p id="visible-comment"></p>
-				<button type="submit" type="btton" class="btn btn-primary" id="button">Send</button>
-				</div><!--form group ending-->
-		</form><!-- form ending-->
+		<%= flash[:notice] %>
+		<%= form_tag("/static_pages/thank_you") do %>
+		<div class="row">
+		
+			<div class="form-group col-sm-12 col-md-12 col-lg-12">
+				<%= label_tag :name %>
+				<%= text_field_tag :name, nil, :class => "form-control", placeholder: "Enter name:" %>
+			</div>
+		
+			<div class="form-group col-sm-12 col-md-12 col-lg-12 ">
+				<%= label_tag :email, "Email address" %>
+				<%= text_field_tag :email, nil, :class => "form-control", placeholder: "Enter your e-mail address:" %>
+			</div>
+		
+			<div class="form-group col-sm-12 col-md-12 col-lg-12">
+				<%= label_tag :message %>
+				<%= text_area_tag :message, nil, :class => "form-control", placeholder: "Enter your message:" %>
+			</div>
+		
+		</div>
 	</div>
+	<%= submit_tag "Send", :class => "btn btn-default" %>
+	<% end %>
 </section>

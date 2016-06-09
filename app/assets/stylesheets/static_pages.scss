@@ -166,7 +166,10 @@ address{
 	text-decoration: underline;
 	font-size: 25px;
 }
-
+.btn:hover{
+	background-color: #E27A3F;
+	transition: 1.5s;
+}
 /*Footer Styling */
 
 .footer-distributed{
