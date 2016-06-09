@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*NAVIGATION PAGE STYLES START*/
 
+body *{
+	font-family: 'Snippet', sans-serif;
+}
+
 .navbar-custom {
 	border: 0;
 	border-radius: 0;
@@ -26,11 +30,14 @@
 }
 
 .navbar-custom .navbar-brand {
-	font-family: 'Dancing Script', cursive;
+	font-family: 'Playfair Display', serif;
 	font-weight: 700;
 	font-size: 32px;
 }
 
+.navbar-nav{
+	font-family: 'Karla', sans-serif;
+}
 .navbar-custom .nav .open > a,
 .navbar-custom .nav li a:focus {
 	background: none;
@@ -68,7 +75,7 @@
 
 /* Margin top pages */
 #contact, #orders, #shop {
-	margin-top: 50px;
+	padding-top: 50px;
 }
 #index {
 	text-align: center;
@@ -108,7 +115,7 @@ header{
 	padding-right: 10px;
 }
 
-.products h1{
+.products h3{
 	text-align: center;
 }
 
@@ -117,7 +124,7 @@ header{
 }
 
 .products p{
-	color: blue;
+	color: #334D5C;
 	border-top: solid;
 	margin-top: 10px;
 }
@@ -161,8 +168,12 @@ header{
 	height: 580px;
 	padding-left: 10px;
 	padding-right: 10px;
-
+	background-color: #45B29D;
 }
+#contact .row{
+	background-color: #45B29D;
+}
+
 address{
 	margin-left: 15px;
 	text-decoration: underline;
@@ -245,4 +256,5 @@ address{
 		line-height: 1.8;
 	}
 }
+
 
