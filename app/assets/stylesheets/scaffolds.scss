@@ -111,3 +111,77 @@ div {
   background-color: #E27A3F;
   transition: 1.5s;
 }
+
+/*Login, Sign Up, Forget Password form styles */
+
+.login_form,
+.sign_up_form,
+.forgot_form{
+  width: 100%;
+  padding: 3%;
+  margin: auto;
+  background-color: #EFC94C;
+}
+
+.login_field,
+.sign_up_field,
+.forgot_field {
+  position: relative;
+  z-index: 1;
+  background: #F3FFE2;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.login_input,
+.sign_up_input,
+.forgot_input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;  
+}
+
+.login_button,
+.sign_up_button,
+.forgot_button {
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.login_button:hover, .login_button:active, .login_button:focus,
+.sign_up_button:hover, .sign_up_button:active, .sign_up_button:focus,
+.forgot_button:hover, .forgot_button:active, .forgot_button:focus {
+  background: #43A047;
+}
+
+.login_help, 
+.sign_up_help,
+.forgot_help {
+  margin: 15px;
+  font-size: 16px;
+}
+
+.login_help :hover, 
+.sign_up_help :hover,
+.forgot_help :hover {
+  background: none;
+  font-weight: bold;
+  color: red;
+}

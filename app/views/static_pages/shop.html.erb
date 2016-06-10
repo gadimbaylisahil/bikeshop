@@ -3,7 +3,7 @@
 		<%= link_to 'Edit Products', "/products", :class => 'col-md-12 col-sm-12 col-lg-12 edit_products' %>
 		<% @products.each do |product| %>
 		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 products">
-			<h3> <%= product.name %> </h3>	
+			<h3> <%= truncate(product.name, length: 12, seperator: ' ') %> </h3>	
 			<%= image_tag(product.image_url, :class => "img-responsive") %>
 			<p> <%= product.decription %> </p>
 			<strong> <%= product.price %> $</strong>
