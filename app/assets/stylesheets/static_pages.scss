@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*NAVIGATION PAGE STYLES START*/
 
-body *{
+body * {
 	font-family: 'Snippet', sans-serif;
 }
 
@@ -59,14 +59,15 @@ body *{
 .navbar-custom .navbar-toggle .icon-bar {
 	background: #fff;
 }
-// search box stylings
 
+// search box stylings
 .search_text{
 	margin-top: 10px;
 	margin-bottom: 8px;
 	margin-left: 5px;
 	position: relative;
 }
+
 .search_button:hover {
 	background: none;
 	outline: 0;
@@ -77,6 +78,7 @@ body *{
 #contact, #orders, #shop {
 	padding-top: 50px;
 }
+
 #index {
 	text-align: center;
 }
@@ -104,15 +106,31 @@ header{
 
 .information{
 	width: 100%;
-	height: 500px;
 	background-color: #EFC94C;
 	text-align: center;
+	margin: 0;
+}
+
+.information:hover{
+	background-color: #DF5A49;
+	transition: 1s;
+}
+
+.why_us{
+	margin-top: 0;
+	height: 500px;
+	width: 100%;
+	background-image: url(cycling.jpg);
+	background-attachment: cover;
+	background-size: cover;
+  	
 }
 
 /*Shop Page styles */
 #shop{
 	padding-left: 10px;
 	padding-right: 10px;
+	background-color: #FFF0A5;
 }
 
 .products h3{
@@ -151,11 +169,13 @@ header{
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
 .continue{
 	font-size: 20px;
 	text-decoration: underline;
 	padding-left: 5px;
 }
+
 .continue:hover{
 	background: none;
 	color:red;
@@ -170,6 +190,7 @@ header{
 	padding-right: 10px;
 	background-color: #45B29D;
 }
+
 #contact .row{
 	background-color: #45B29D;
 }
@@ -179,6 +200,7 @@ address{
 	text-decoration: underline;
 	font-size: 25px;
 }
+
 .btn:hover{
 	background-color: #E27A3F;
 	transition: 1.5s;
