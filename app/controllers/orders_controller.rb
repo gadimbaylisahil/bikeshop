@@ -1,17 +1,16 @@
 class OrdersController < ApplicationController
-	def index
-
+	def index 
 	end
 
-	def show
+	def show 
 	end
 
 	def new 
 	end
 
-	def create
+	def create 
 	end
 
-	def destroy
+	def destroy 
 	end
 end

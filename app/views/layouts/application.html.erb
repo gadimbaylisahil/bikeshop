@@ -14,6 +14,7 @@
   
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%= javascript_include_tag 'custom', 'data-turbolinks-track' => true %>
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +24,26 @@
 </head>
 
 <body>
-	<!-- <p class="notice"><%=notice%></p> -->
+
+	<!-- Alerts and Notifications -->
+	<% if notice %>
+
+		<div class="alert alert-success alert-dismissible fade in" role="alert" style="margin: 0; padding: 10;">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 			<%=notice%>
+		</div>
+
+	<% end %>
+
+	<% if alert %>
+		
+		<div class="alert alert-warning alert-dismissible fade in" role="alert" style="margin: 0; padding: 10;">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 			<strong>Warning!</strong> <%=alert%>
+		</div>
+		
+	<% end %>
+
 	<!-- NAVIGATION -->
 	<nav class="navbar navbar-transparent navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container">
@@ -68,6 +88,7 @@
 
 <%= yield %>
 
+	<!-- Footer -->
 	<footer class="footer-distributed">
 
 		<div class="footer-right">
