@@ -6,13 +6,13 @@
     <div class="login_field">
 
       <div class="field">
-        <%= f.label :email, "EMAIL", :class => 'login_input', :style => "background-color: #1695A3; color: #FFFFFF;" %><br />
-        <%= f.email_field :email, autofocus: true, :class => 'login_input' %>
+        <%= f.label :email, "EMAIL", :class => 'login_input', :style => "background-color: #558099; color: #FFFFFF;" %><br />
+        <%= f.email_field :email, autofocus: true, :class => 'login_input',:style => "padding: 5px;" %>
       </div>
 
       <div class="field">
-        <%= f.label :password, "PASSWORD", :class => 'login_input', :style => "background-color: #1695A3; color: #FFFFFF; " %><br />
-        <%= f.password_field :password, autocomplete: "off", :class => 'login_input' %>
+        <%= f.label :password, "PASSWORD", :class => 'login_input', :style => "background-color: #558099; color: #FFFFFF; " %><br />
+        <%= f.password_field :password, autocomplete: "off", :class => 'login_input',:style => "padding: 5px;" %>
       </div>
 
       <% if devise_mapping.rememberable? -%>

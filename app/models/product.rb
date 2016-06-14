@@ -1,3 +1,4 @@
 class Product < ActiveRecord::Base
-	has_many :orders
+	belongs_to :orders
+	has_many :comments
 end

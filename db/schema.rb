@@ -11,15 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610002132) do
+ActiveRecord::Schema.define(version: 20160614200329) do
 
-  create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
-    t.float   "total"
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "body"
+    t.integer  "rating"
+    t.integer  "product_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.datetime "comment_date"
   end
 
-  add_index "orders", ["product_id"], name: "index_orders_on_product_id"
+  add_index "comments", ["product_id"], name: "index_comments_on_product_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.float    "total"
+    t.datetime "order_date"
+  end
+
   add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: :cascade do |t|
@@ -31,7 +44,10 @@ ActiveRecord::Schema.define(version: 20160610002132) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "colour"
+    t.integer  "order_id"
   end
+
+  add_index "products", ["order_id"], name: "index_products_on_order_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

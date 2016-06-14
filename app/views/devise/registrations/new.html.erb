@@ -8,21 +8,21 @@
   <div class="sign_up_field">
 
     <div class="field">
-      <%= f.label :email, "EMAIL", :class => 'sign_up_input', :style => "background-color: #1695A3; color: #FFFFFF;"  %><br />
-      <%= f.email_field :email, autofocus: true, :class => 'sign_up_input' %>
+      <%= f.label :email, :class => 'sign_up_input', :style => "background-color: #558099; color: #FFFFFF;"  %><br />
+      <%= f.email_field :email, autofocus: true, :class => 'sign_up_input',:style => "padding: 5px;" %>
     </div>
 
     <div class="field">
-      <%= f.label :password, "PASSWORD", :class => 'sign_up_input', :style => "background-color: #1695A3; color: #FFFFFF;" %>
+      <%= f.label :password, "PASSWORD", :class => 'sign_up_input', :style => "background-color: #558099; color: #FFFFFF;" %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "off", :class => 'sign_up_input' %>
+      <%= f.password_field :password, autocomplete: "off", :class => 'sign_up_input', :style => "padding: 5px;" %>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "CONFIRM YOUR PASSWORD", :class => 'sign_up_input', :style => "background-color: #1695A3; color: #FFFFFF;" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'sign_up_input' %>
+      <%= f.label :password_confirmation, "CONFIRM YOUR PASSWORD", :class => 'sign_up_input', :style => "background-color: #558099; color: #FFFFFF;" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => 'sign_up_input',:style => "padding: 5px;" %>
     </div>
 
     <div class="actions">
