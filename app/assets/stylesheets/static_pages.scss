@@ -2,11 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /*NAVIGATION PAGE STYLES START*/
-
-body * {
-	font-family: 'Poiret One', cursive;
+body *{
+	font-family: 'Slabo 27px', serif;
 }
-
 .navbar-custom {
 	border: 0;
 	border-radius: 0;
@@ -128,42 +126,31 @@ header{
 /*Shop Page styles */
 
 #shop{
-	top: 0;
-	padding-left: 10px;
-	padding-right: 10px;
-	background-color: #A0DBD7;
+	background-color: #EFE8D0;
 }
 
-.products h3{
-	text-align: center;
+.add-to-cart .btn-qty {
+	width: 52px;
+	height: 46px;
 }
 
-.products strong{
-	color: red;
+.add-to-cart .btn {
+	border-radius: 0;
 }
 
-.products p{
-	color: #334D5C;
-	border-top: solid;
-	margin-top: 10px;
+.item-row{
+	padding-top: 5%;
+	padding-bottom: 2%;
 }
 
-#shop > a{
-	font-size: 20px;
-}
-
-#shop > a:hover{
+.edit_products:hover,
+.checkout:hover{
 	background: none;
 	color: red;
 	transition: 0.8s;
+	font-size: 18px;
 }
 
-.checkout:hover,
-.edit_products:hover{
-	background: none;
-	color: red;
-	transition: 0.8s;
-}
 
 /*Orders page styles*/
 
@@ -282,5 +269,4 @@ address{
 		line-height: 1.8;
 	}
 }
-
 

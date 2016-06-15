@@ -1,14 +1,135 @@
-<section id="shop">
-	<div class="row">
-		<%= link_to 'Edit Products', "/products", :class => 'col-md-12 col-sm-12 col-lg-12 edit_products' %>
-		<% @products.each do |product| %>
-		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 col-xl-3 products">
-			<h3> <%= truncate(product.name, length: 12, seperator: ' ') %> </h3>	
+<div class="container-fluid" id="shop">
+	
+	<span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to 'EDIT PRODUCTS', "/products", :class => 'edit_products' %></span>
+
+	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/static_pages/orders", :class => 'checkout' %></span>
+
+	<% @products.each do |product| %>
+	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
+	
+		<!-- product image -->
+		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
 			<%= image_tag(product.image_url, :class => "img-responsive") %>
-			<p> <%= product.decription %> </p>
-			<strong> <%= product.price %> $</strong>
 		</div>
-		<% end %>
-		<%= link_to 'Proceed to checkout', "/static_pages/orders", :class => 'col-md-12 col-sm-12 col-lg-12 checkout' %>
-	</div>
-</section>
+
+		<!-- product information -->
+		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
+
+			<!-- Name -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+					<p style="font-size: 24px;"><%=product.name%></p>
+				</div>
+			</div> 
+
+			<!-- Description -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+					<p class="description">
+						<%= product.decription %> 
+					</p>
+				</div>
+			</div>
+
+			<!-- Rating -->
+			<div class="row">
+				<div class="col-md-6">
+					<span class="sr-only">Four out of Five Stars</span>
+  					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  					<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  					<span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+  					<span class="label label-success">18</span>
+				</div>
+				<div class="col-md-6">
+					<span class="monospaced">Write a review</span>
+				</div>
+			</div>
+
+			<!-- Price -->
+			<div class="row">
+				<div class="bottom-rule col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+					<h2 style="border-bottom: dotted;"><%= product.price %>£</h2>
+				</div>
+			</div>
+
+			<!-- Quantity -->
+			<div class="row add-to-cart">
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12  product-qty">
+					
+					<span class="btn btn-default btn-lg btn-qty">
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</span>
+					
+					<input class="btn btn-default btn-lg btn-qty" value="1" />
+					
+					<span class="btn btn-default btn-lg btn-qty">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</span>
+
+				</div>
+
+			</div>
+			
+			<br>
+			
+			<!-- Add to cart button -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+					<button class="btn btn-lg btn-brand btn-full-width">Add to cart</button>
+				</div>
+			</div>
+			<br>
+			<!--Product Nav Tabs -->
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+					
+					<!-- Nav Tabs -->
+					<ul class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#description" aria-controls="description"
+								role="tab" data-toggle="tab">
+								Description
+							</a>
+						</li>
+
+						<li role="presentation">
+							<a href="#notes" aria-controls="notes"
+								role="tab" data-toggle="tab">
+								Notes
+							</a>
+						</li>
+
+						<li role="presentation">
+							<a href="#reviews" aria-controls="reviews"
+								role="tab" data-toggle="tab">
+								Reviews
+							</a>
+						</li>
+					</ul>
+
+					<!-- Tab Panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="description">
+							<%= product.decription %>
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="notes">
+							NULL
+						</div>
+
+						<div role="tabpanel" class="tab-pane" id="reviews">
+							NULL
+						</div>
+					</div>
+
+				</div><!-- Nav grid end-->
+
+			</div> <!--Nav row end -->
+
+		</div> <!-- product info end -->
+	
+	</div> <!-- Main row end -->
+	<% end %>
+</div>
