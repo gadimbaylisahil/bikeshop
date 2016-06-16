@@ -86,42 +86,37 @@
 				<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
 					
 					<!-- Nav Tabs -->
-					<ul class="nav nav-tabs" role="tablist">
+					<ul class="nav nav-tabs" role="tablist" >
+
 						<li role="presentation" class="active">
-							<a href="#description" aria-controls="description"
-								role="tab" data-toggle="tab">
-								Description
-							</a>
+							<a href="#<%= product.id %>description" data-toggle="tab" role="tab">Description</a>
+						</li>
+						
+						<li role="presentation">
+							<a href="#<%= product.id %>notes" data-toggle="tab" role="tab">Notes</a>
+						</li>
+						
+						<li role="presentation">
+							<a href="#<%= product.id %>reviews" data-toggle="tab" role="tab">Reviews</a>
 						</li>
 
-						<li role="presentation">
-							<a href="#notes" aria-controls="notes"
-								role="tab" data-toggle="tab">
-								Notes
-							</a>
-						</li>
-
-						<li role="presentation">
-							<a href="#reviews" aria-controls="reviews"
-								role="tab" data-toggle="tab">
-								Reviews
-							</a>
-						</li>
 					</ul>
 
 					<!-- Tab Panes -->
 					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="description">
+
+						<div  class="tab-pane active" role="tabpanel" id="<%=product.id%>description">
 							<%= product.decription %>
 						</div>
 
-						<div role="tabpanel" class="tab-pane" id="notes">
-							NULL
+						<div  class="tab-pane" role="tabpanel" id="<%=product.id%>notes">
+							NOTES COMING SOON
 						</div>
 
-						<div role="tabpanel" class="tab-pane" id="reviews">
-							NULL
+						<div  class="tab-pane" role="tabpanel" id="<%=product.id%>reviews">
+							REVIEWS COMING SOON
 						</div>
+
 					</div>
 
 				</div><!-- Nav grid end-->
