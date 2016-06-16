@@ -89,8 +89,17 @@ div {
   padding-left: 15px;
   padding-right: 15px;
 }
+/*Products Index Stylings*/
+tbody *{
+  font-size: 16px;
+}
+
+.filterable .panel-heading .pull-right {
+    margin-top: -23px;
+}
 
 /*Edit From Stylings*/
+
 .edit_label,
 .edit_form{
   padding-top: 20px;
@@ -186,3 +195,4 @@ div {
   font-weight: bold;
   color: red;
 }
+
