@@ -7,11 +7,11 @@
 
       <h2 class="panel-title">Products</h2>
       <div class="pull-right">
-        <%= link_to 'New Product', new_product_path, :class => 'btn btn-default btn-sm' %>
+        <%= link_to 'Add', new_product_path, :class => 'btn btn-default btn-sm glyphicon glyphicon-plus-sign' %>
       </div>
 
     </div>
-
+    <!-- Table columns -->
     <table class="table">
       <thead>
         <tr class="filters">
@@ -24,7 +24,7 @@
           <th colspan="3"></th>
         </tr>
       </thead>
-
+      <!-- Table contents -->
       <tbody>
         <% @products.each do |product| %>
           <tr>
@@ -42,9 +42,14 @@
             
             <td><%= product.price %></td>
             <td><%= product.colour %></td>
-            <td><%= link_to 'Show', product %></td>
-            <td><%= link_to 'Edit', edit_product_path(product) %></td>
-            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            <!-- link to product information -->
+            <td><%= link_to '', product, :class => 'glyphicon glyphicon-info-sign', :style => 'background: none;'  %></td>
+            <!-- link to product editing -->
+            <td><%= link_to '', edit_product_path(product), :class => 'glyphicon glyphicon-edit', :style => 'background: none;' %></td>
+            <!-- link to product removal -->
+            <td><%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'glyphicon glyphicon-remove', :style => 'background: none;'  %></td>
+          
           </tr>
         <% end %>
       </tbody>
