@@ -13,35 +13,36 @@
  
   <div class="field form-group fg">
     <%= f.label :name , "Product Name", :class => "edit_label" %><br>
-    <%= f.text_field :name, :class => "edit_entry" %>
+    <%= f.text_field :name, :class => "edit_entry", :required => true %>
   </div>
 
   <div class="field form-group fg">
     <%= f.label :decription, "Product Description", :class => "edit_label" %><br>
-    <%= f.text_area :decription, :class => "edit_entry" %>
+    <%= f.text_area :decription, :class => "edit_entry", :required => true %>
   </div>
   
   <div class="field form-group fg">
     <%= f.label :image_url, "Product Image Address", :class => "edit_label" %><br>
-    <%= f.text_field :image_url, :class => "edit_entry" %>
+    <%= f.text_field :image_url, :class => "edit_entry", :required => true %>
   </div>
   
   <div class="field form-group fg">
     <%= f.label :brand_new, "Brand New?", :class => "edit_label" %><br>
-    <%= f.check_box :brand_new, :class => "edit_entry" %>
+    <%= f.check_box :brand_new, :class => "edit_entry", :required => true %>
   </div>
   
   <div class="field form-group fg">
     <%= f.label :price, "Product Price", :class => "edit_label" %><br>
-    <%= f.number_field :price, :class => "edit_entry" %>
+    <%= f.number_field :price, :class => "edit_entry", :required => true %>
   </div>
   
   <div class="field form-group fg">
     <%= f.label :colour, "Product Color", :class => "edit_label" %><br>
-    <%= f.text_field :colour, :class => "edit_entry" %>
+    <%= f.text_field :colour, :class => "edit_entry", :required => true %>
   </div>
   
   <div class="actions">
     <%= f.submit :class => "edit_submit" %>
   </div>
+  
 <% end %>
