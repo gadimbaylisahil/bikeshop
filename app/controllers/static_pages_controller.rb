@@ -5,9 +5,10 @@ class StaticPagesController < ApplicationController
   	@featured_product = Product.first
   	@products = Product.limit(3)
   end
-  
+
   def shop
   	@products = Product.all
+    @comments = Comment.all
   end
 
   def thank_you
@@ -15,5 +16,6 @@ class StaticPagesController < ApplicationController
   	@email = params[:email]
   	@message = params[:message]
   	UserMailer.contact_form(@email, @name, @message).deliver_now
-end
+  end
+
 end

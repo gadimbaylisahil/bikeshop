@@ -1,18 +1,19 @@
 class CommentsController < ApplicationController
-	
-	def index
-	end
-
-	def show
-	end
-
-	def new
-	end
 
 	def create
-	end
+		@product = Product.find(params[:product_id])
+  	@comment = @product.comments.new(comment_params)
+  	@comment.user = current_user
+  	@comment.save
+  	redirect_to product_path(@product)
+  end
 
-	def destroy
-	end
+  def destroy
+  end
 
+	private
+
+  	def comment_params
+    	params.require(:comment).permit(:user_id, :title, :body, :rating)
+  	end
 end

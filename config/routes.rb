@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resources :products
+  
+  resources :products do
+    resources :comments
+  end
+
   get 'static_pages/orders'
 
   get 'static_pages/contact'
@@ -20,7 +24,9 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :show, :create, :destroy]
 
-  resources :comments, only: [:index, :show, :create, :destroy]
+  resources :comments, only: [:create, :destroy]
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
