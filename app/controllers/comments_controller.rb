@@ -16,6 +16,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    if signed_in? && current_user.admin?
+    @comment = Comment.find(params[:id])
+    product = @comment.product
+    @comment.destroy
+    redirect_to product
+    else redirect_to product
+    end
   end
 
 	private

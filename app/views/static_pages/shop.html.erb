@@ -65,11 +65,11 @@
  										<%= form_for([product, product.comments.build]) do |f| %>
 										    <p>
 										      <%= f.label :title, "Title" %><br>
-										      <%= f.text_area :title %>
+										      <%= f.text_area :title, :required => true %>
 										    </p>
 										    <p>
 										      <%= f.label :body, "Comments" %><br>
-										      <%= f.text_area :body %>
+										      <%= f.text_area :body, :required => true %>
 										    </p>
 										    <p>
 										      <%= f.label :rating %><br>
@@ -170,8 +170,15 @@
 									<div class="row">
 										<hr>		
 										<p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
+										
+										<!-- Admins access to comments -->
+										<% if signed_in? && current_user.admin? %>	
+											
+											<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, comment, method: :delete, data: { confirm: 'Are you sure?' } %>	
+										
+										<% end %>
+
 										<p style="font-size: 16px; color: red;"><%= comment.title %></p>
-									
 										<div class="rated" data-score="<%= comment.rating %>">
 										</div>
 										<p><%= comment.body %></p>
@@ -179,7 +186,7 @@
 
 								<% end %> <!-- IF condition end -->
 								<% end %> <!-- Loop end -->
-								
+
 						</div><!-- Review tab end -->
 
 					</div> <!-- Tab Contents end-->
