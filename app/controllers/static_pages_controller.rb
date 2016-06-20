@@ -1,13 +1,13 @@
 class StaticPagesController < ApplicationController
   
   def index
-  	@products= Product.all
+  	@products= Product.paginate(:page => params[:page], :per_page => 2)
   	@featured_product = Product.first
   	@products = Product.limit(3)
   end
 
   def shop
-  	@products = Product.all
+  	@products= Product.paginate(:page => params[:page], :per_page => 2)
     @comments = Comment.all
   end
 

@@ -7,12 +7,12 @@
 	<% @products.each do |product| %>
 	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
 	
-		<!-- product image -->
+		<!-- Product Image -->
 		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
 			<%= image_tag(product.image_url, :class => "img-responsive") %>
 		</div>
 
-		<!-- product information -->
+		<!-- Product Information -->
 		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
 
 			<!-- Name -->
@@ -49,7 +49,6 @@
 					<%end%>
 
 					<!-- Comment Modal Content/Add review -->
-
 					<div class="modal fade" id="commentModal<%=product.id%>" role="dialog">
 						<div class="modal-dialog">
 							
@@ -118,14 +117,15 @@
 				</div>
 
 			</div>
-			
 			<br>
 			
 			<!-- Add to cart button -->
 			<div class="row">
+				
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 					<button class="btn btn-lg btn-brand btn-full-width"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
 				</div>
+
 			</div>
 			<br>
 
@@ -166,29 +166,34 @@
 								<% @comments.each do |comment| %>
 
 								<% if comment.product.id == product.id %>
+									
 									<div class="row">
 										<hr>		
 										<p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
-										
 										<p style="font-size: 16px; color: red;"><%= comment.title %></p>
-										
+									
 										<div class="rated" data-score="<%= comment.rating %>">
 										</div>
-
 										<p><%= comment.body %></p>
 									</div>
-								<% end %>
+
+								<% end %> <!-- IF condition end -->
+								<% end %> <!-- Loop end -->
 								
-								<% end %>
-						</div>
-					</div> <!-- Tab Content -->
+						</div><!-- Review tab end -->
+
+					</div> <!-- Tab Contents end-->
 				
-				</div><!-- Nav grid end-->
+				</div><!-- Nav Grid end-->
 
-			</div> <!--Nav row end -->
+			</div> <!--Nav Row end -->
 
-		</div> <!-- product info end -->
-	
-	</div> <!-- Main row end -->
-	<% end %>
+		</div> <!-- Product Info end -->
+
+	</div> <!-- Main Row end -->
+
+	<% end %> <!-- Products Loop end -->
+</div>
+<div class="products-paginate" style="text-align: center; background-color: #A0DBD7;">
+	<%= will_paginate @products %>
 </div>
