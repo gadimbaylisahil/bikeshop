@@ -20,34 +20,36 @@
       <h2 class="panel-title">Product No: <%=@product.id%></h2>
 
     </div>
-    <!-- Table columns -->
-    <table class="table">
-      <thead>
-        <tr class="filters" style="text-decoration: bold; font-size: 16px; border-bottom: solid; color: red;">
-          <th >NAME</th>
-          <th>DESCRIPTION</th>
-          <th>IMAGE_URL</th>
-          <th>NEW?</th>
-          <th>PRICE</th>
-          <th>COLOUR</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-      
-      <!-- Table contents -->
-      <tbody>
-          <tr>
-            <td><%= f.text_field :name, :class => "edit_entry", :required => true %></td>
-            <td><%= f.text_area :decription, :class => "edit_entry", :required => true %></td>
-            <td><%= f.text_field :image_url, :class => "edit_entry", :required => true %></td>
-            <td><%= f.check_box :brand_new, :class => "edit_entry", :required => true %></td>
-            <td><%= f.number_field :price, :class => "edit_entry", :required => true %></td>
-            <td><%= f.text_field :colour, :class => "edit_entry", :required => true %></td>
-            <td><%= f.submit :class => "btn btn-primary" %></td>
+    <div class="table-responsive">
+      <!-- Table columns -->
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr class="filters" style="text-decoration: bold; font-size: 16px; border-bottom: solid; color: red;">
+            <th >NAME</th>
+            <th>DESCRIPTION</th>
+            <th>IMAGE_URL</th>
+            <th>NEW?</th>
+            <th>PRICE</th>
+            <th>COLOUR</th>
+            <th colspan="3"></th>
           </tr>
-      </tbody>
+        </thead>
+        
+        <!-- Table contents -->
+        <tbody>
+            <tr>
+              <td><%= f.text_field :name, :class => "edit_entry", :required => true %></td>
+              <td><%= f.text_area :decription, :class => "edit_entry", :required => true %></td>
+              <td><%= f.text_field :image_url, :class => "edit_entry", :required => true %></td>
+              <td><%= f.check_box :brand_new, :class => "edit_entry", :required => true %></td>
+              <td><%= f.number_field :price, :class => "edit_entry", :required => true %></td>
+              <td><%= f.text_field :colour, :class => "edit_entry", :required => true %></td>
+              <td><%= f.submit :class => "btn btn-primary" %></td>
+            </tr>
+        </tbody>
 
-    </table>
+      </table>
+    </div>
   </div>
   <% end %>
 
