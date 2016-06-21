@@ -1,34 +1,61 @@
-<p id="notice"><%= notice %></p>
+<div class="row" style="margin-left:5px; margin-right:5px;">
+  
+  <h1>Product Information</h1>
+  <div class="panel panel-primary filterable">
+    
+    <div class="panel-heading">
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+      <h2 class="panel-title">Product No: <%=@product.id%></h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.decription %>
-</p>
+    </div>
+    <!-- Table columns -->
+    <table class="table">
+      <thead>
+        <tr class="filters" style="text-decoration: bold; font-size: 16px; border-bottom: solid; color: red;">
+          <th >NAME</th>
+          <th>DESCRIPTION</th>
+          <th>IMAGE_URL</th>
+          <th>NEW?</th>
+          <th>PRICE</th>
+          <th>COLOUR</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      
+      <!-- Table contents -->
+      <tbody>
+          <tr>
+            <td><%= @product.name %></td>
+            <td><%= @product.decription %></td>
+            <td><%= @product.image_url %></td>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+            <% if (@product.brand_new == true) %>
+              <td style="color: green;"><%= "Yes" %></td>
+            <% end %>
+            
+            <% if (@product.brand_new == false) %>
+              <td style="color: red;"><%= "No" %></td>
+            <% end %>
+            
+            <td><%= @product.price %></td>
+            <td><%= @product.colour %></td>
+            <!-- View Image -->
+            <td><%= link_to 'View Image', image_path("#{@product.image_url}") %></td>
 
-<p>
-  <strong>Brand new:</strong>
-  <%= @product.brand_new %>
-</p>
+          </tr>
+       
+      </tbody>
+    </table>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  </div>
 
-<p>
-  <strong>Colour:</strong>
-  <%= @product.colour %>
-</p>
+  <div class="product-nav">
+    <!-- Link to product editing -->
+    <%= link_to '', edit_product_path(@product), :class => 'glyphicon glyphicon-edit' %> |
+    <!-- Back to Products Listings -->
+    <%= link_to '', products_path, :class => 'glyphicon glyphicon-circle-arrow-left' %>
+  </div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+</div>
+
+
