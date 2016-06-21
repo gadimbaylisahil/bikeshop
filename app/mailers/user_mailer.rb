@@ -10,4 +10,11 @@ class UserMailer < ApplicationMailer
 				)
 		@name = name
 	end
+
+	def welcome(user)
+		@appname = "Bike Shop"
+		mail(
+				:to => user.email,
+				:subject => "Welcome to #{@appname}!")
+	end
 end
