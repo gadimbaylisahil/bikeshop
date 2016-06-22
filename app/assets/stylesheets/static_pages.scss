@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*NAVIGATION PAGE STYLES START*/
-body *{
+body * {
 	font-family: 'Slabo 27px', serif;
 }
 .navbar-custom {
@@ -59,7 +59,7 @@ body *{
 }
 
 // search box stylings
-.search_text{
+.search_text {
 	margin-top: 10px;
 	margin-bottom: 8px;
 	margin-left: 5px;
@@ -73,7 +73,9 @@ body *{
 }
 
 /* Margin top pages */
-#contact, #orders, #shop {
+#contact, 
+#orders, 
+#shop {
 	padding-top: 50px;
 }
 
@@ -83,13 +85,13 @@ body *{
 
 /* Index Page Styles */
 
-header{
+header {
 	text-align: center;
 	weight: 10px;
 	font-size: 50px;
 }
 
-.carousel-inner > .item > img{
+.carousel-inner > .item > img {
 	width: 640px;
 	height: 500px;
 	display: block;
@@ -97,24 +99,24 @@ header{
 	margin-right: auto;
 }
 
-.carousel-inner{
+.carousel-inner {
 	width: 640px;
 	height: 400px;
 }
 
-.information{
+.information {
 	width: 100%;
 	background-color: #EFC94C;
 	text-align: center;
 	margin: 0;
 }
 
-.information:hover{
+.information:hover {
 	background-color: #DF5A49;
 	transition: 1s;
 }
 
-.why_us{
+.why_us {
 	margin-top: 0;
 	height: 500px;
 	width: 100%;
@@ -126,8 +128,8 @@ header{
 
 /*Shop Page styles */
 
-#shop{
-	background-color: #FFF0EB;
+#shop {
+	background-color: #C8E5F4;
 }
 
 .add-to-cart .btn-qty {
@@ -139,13 +141,13 @@ header{
 	border-radius: 0;
 }
 
-.item-row{
+.item-row {
 	padding-top: 5%;
 	padding-bottom: 2%;
 }
 
 .edit_products:hover,
-.checkout:hover{
+.checkout:hover {
 	background: none;
 	color: red;
 	transition: 0.8s;
@@ -159,18 +161,18 @@ header{
 
 /*Orders page styles*/
 
-#orders{
+#orders {
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
-.continue{
+.continue {
 	font-size: 20px;
 	text-decoration: underline;
 	padding-left: 5px;
 }
 
-.continue:hover{
+.continue:hover {
 	background: none;
 	color:red;
 	transition: 0.8s;
@@ -178,7 +180,7 @@ header{
 
 /*Contact page styles*/
 
-#contact{
+#contact {
 	width: 100%;
 	height: 670px;
 	padding-left: 10px;
@@ -186,24 +188,24 @@ header{
 	background-color: #45B29D;
 }
 
-#contact .row{
+#contact .row { 
 	background-color: #45B29D;
 }
 
-address{
+address { 
 	margin-left: 15px;
 	text-decoration: underline;
 	font-size: 25px;
 }
 
-.btn:hover{
+.btn:hover {
 	background-color: #E27A3F;
 	transition: 1.5s;
 }
 
 /*Footer Styling */
 
-.footer-distributed{
+.footer-distributed {
 	background-color: #292c2f;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
@@ -213,7 +215,7 @@ address{
 	padding: 45px 50px;
 }
 
-.footer-distributed .footer-left p{
+.footer-distributed .footer-left p {
 	color:  #8f9296;
 	font-size: 14px;
 	margin: 0;
@@ -221,7 +223,7 @@ address{
 
 // Footer links 
 
-.footer-distributed p.footer-links{
+.footer-distributed p.footer-links {
 	font-size:18px;
 	font-weight: bold;
 	color:  #ffffff;
@@ -229,20 +231,20 @@ address{
 	padding: 0;
 }
 
-.footer-distributed p.footer-links a{
+.footer-distributed p.footer-links a {
 	display:inline-block;
 	line-height: 1.8;
 	text-decoration: none;
 	color:  inherit;
 }
 
-.footer-distributed .footer-right{
+.footer-distributed .footer-right {
 	float: right;
 	margin-top: 6px;
 	max-width: 180px;
 }
 
-.footer-distributed .footer-right a{
+.footer-distributed .footer-right a {
 	display: inline-block;
 	width: 35px;
 	height: 35px;
@@ -313,16 +315,16 @@ address{
 @media (max-width: 600px) {
 
 	.footer-distributed .footer-left,
-	.footer-distributed .footer-right{
+	.footer-distributed .footer-right {
 		text-align: center;
 	}
 
-	.footer-distributed .footer-right{
+	.footer-distributed .footer-right {
 		float: none;
 		margin: 0 auto 20px;
 	}
 
-	.footer-distributed .footer-left p.footer-links{
+	.footer-distributed .footer-left p.footer-links {
 		line-height: 1.8;
 	}
 }
