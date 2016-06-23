@@ -216,16 +216,21 @@ tbody *{
   }
   
   table#cart tbody td { 
-    display: block; padding: .6rem; min-width:320px;
+    display: block; 
+    padding: .6rem; 
+    min-width:320px;
   }
   
   table#cart tbody tr td:first-child { 
-    background: #333; color: #fff; 
+    background: #333; 
+    color: #fff; 
   }
 
   table#cart tbody td:before {
-    content: attr(data-th); font-weight: bold;
-    display: inline-block; width: 8rem;
+    content: attr(data-th); 
+    font-weight: bold;
+    display: inline-block; 
+    width: 8rem;
   }
   
   table#cart tfoot td {

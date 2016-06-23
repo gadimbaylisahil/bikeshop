@@ -65,11 +65,9 @@
 					<li> <%= link_to 'Shop', '/static_pages/shop', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Orders', '/static_pages/orders', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Contact', '/static_pages/contact', :class => 'page-scroll' %></li>
-
 					
-					<!-- Cart section -->
+					<!-- Displaying Cart Info -->
 					<li> <%= link_to "#{current_order.order_items.size} Items & (#{number_to_currency current_order.total} )", cart_path, class: "btn btn-primary" %> </li>
-					
 					
 					<!-- Login and Logout button -->
 					<li>
