@@ -4,21 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    if params[:q]
-      search_term = params[:q]
-      #development environment
-      if Rails.env.development?
-        @products = Product.where("name LIKE ?", "%#{search_term}")
-      end
-      #production envirionment
-      if Rails.env.production?
-        @products = Product.where("name ilike ?", "%#{search_term}")
-      end
-    else
-      @products = Product.all
-      #returns all products
-    end
-
+    @products = Product.all
     @order_item = current_order.order_items.new
   end
 
