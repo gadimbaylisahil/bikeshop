@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   devise_for :users, :controllers => { :registrations => "user_registrations" }
   resources :users
   
@@ -26,7 +34,9 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :destroy]
 
+  resource :cart, only: [:show]
 
+  resources :order_items, only: [:create, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

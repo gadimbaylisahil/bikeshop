@@ -100,7 +100,7 @@
 				</div>
 			</div>
 
-			<!-- Quantity -->
+			<!-- Quantity 
 			<div class="row add-to-cart">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 product-qty">
 					
@@ -115,17 +115,23 @@
 					</span>
 
 				</div>
-
 			</div>
-			<br>
+			-->
 			
+			<br>
 			<!-- Add to cart button -->
 			<div class="row">
 				
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<button class="btn btn-lg btn-brand btn-full-width"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button>
-				</div>
+					<!-- <button class="btn btn-lg btn-brand btn-full-width"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button> -->
+					
+					<%= form_for @order_item, remote: true do |f| %>
+						<%= f.number_field :quantity, value: 1, class: "btn btn-default btn-lg btn-qty", min: 1 %>
+						<%= f.hidden_field :product_id, value: product.id %>
+						<%= f.submit "Add to Cart", class: 'btn btn-lg btn-brand btn-full-width' %>
+					<% end %>
 
+				</div>
 			</div>
 			<br>
 
