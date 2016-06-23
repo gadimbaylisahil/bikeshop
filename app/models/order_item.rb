@@ -3,6 +3,7 @@ class OrderItem < ActiveRecord::Base
   belongs_to :order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :order_id, :uniqueness => { :scope => :product_id, :message => "Already in the cart!" }
   validate :product_present
   validate :order_present
 

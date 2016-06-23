@@ -35,6 +35,7 @@
               
 
               <td data-th="Price"><%= number_to_currency order_item.unit_price %></td>
+              
               <%= form_for order_item, remote: true do |f| %>
               
               <td data-th="Quantity">
