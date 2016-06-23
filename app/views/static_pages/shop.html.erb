@@ -100,41 +100,25 @@
 				</div>
 			</div>
 
-			<!-- Quantity 
-			<div class="row add-to-cart">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 product-qty">
-					
-					<span class="btn btn-default btn-lg btn-qty">
-						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-					</span>
-					
-					<input class="btn btn-default btn-lg btn-qty" value="1" />
-					
-					<span class="btn btn-default btn-lg btn-qty">
-						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					</span>
-
-				</div>
-			</div>
-			-->
-			
-			<br>
 			<!-- Add to cart button -->
 			<div class="row">
 				
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					<!-- <button class="btn btn-lg btn-brand btn-full-width"> <span class="glyphicon glyphicon-shopping-cart"></span> Add to cart</button> -->
 					
 					<%= form_for @order_item, remote: true do |f| %>
-						<%= f.number_field :quantity, value: 1, class: "btn btn-default btn-lg btn-qty", min: 1 %>
+						
+						<%= f.number_field :quantity, value: 1, class: "btn btn-info btn-lg btn-qty", min: 1 %>
+						
 						<%= f.hidden_field :product_id, value: product.id %>
-						<%= f.submit "Add to Cart", class: 'btn btn-lg btn-brand btn-full-width' %>
+
+						<%= f.submit "Add to Cart", class: 'btn btn-lg btn-brand btn-full-width',:onclick => "history.go(0)"  %>
+					
 					<% end %>
 
 				</div>
 			</div>
-			<br>
 
+			<br>
 			<!--Product Nav Tabs -->
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">

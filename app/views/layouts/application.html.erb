@@ -65,22 +65,11 @@
 					<li> <%= link_to 'Shop', '/static_pages/shop', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Orders', '/static_pages/orders', :class => 'page-scroll' %></li>
 					<li> <%= link_to 'Contact', '/static_pages/contact', :class => 'page-scroll' %></li>
-					
-					<!--  
-					Search form / REMOVE AFTER ADDING FILTERING! 
-					<li > 
-					<%= form_tag("/products", method: "get" ) do %>
-						<%= text_field_tag :q, "", class: 'search_text' %>
-						<%= submit_tag("Search", :class => "search_button") %>
-					<% end %>
-					</li>
-					-->
-					<!-- Cart pops up after adding an item -->
 
-					<% if current_order.order_items.size > 0 %>
+					
 					<!-- Cart section -->
 					<li> <%= link_to "#{current_order.order_items.size} Items & (#{number_to_currency current_order.total} )", cart_path, class: "btn btn-primary" %> </li>
-					<% end %>
+					
 					
 					<!-- Login and Logout button -->
 					<li>
