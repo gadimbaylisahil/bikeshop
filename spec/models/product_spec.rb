@@ -3,8 +3,8 @@ require 'rails_helper'
 describe Product do 
 	#Rating average calc test
 	before do 
-		@product = Product.create!(name: "race bike", price: 150, image_url: "bike1.png")
-		@user = User.create!(email: "test@test.com", password: "123456")
+		@product = FactoryGirl.create(:product)
+		@user = FactoryGirl.create(:user)
 		@product.comments.create!(rating: 2, user: @user, title: "test", body: "test")
 		@product.comments.create!(rating: 5, user: @user, title: "test", body: "test")
 		@product.comments.create!(rating: 5, user: @user, title: "test", body: "test")
@@ -19,7 +19,6 @@ describe Product do
 		expect(Product.new(price: 14)).not_to be_valid
 		expect(Product.new(name: "Bike!")).not_to be_valid
 	end
-
 
 end
 
