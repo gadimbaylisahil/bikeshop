@@ -78,6 +78,13 @@
 						<% end %>
 					</li>
 
+					<li > 
+					<%= form_tag("/products", method: "get" ) do %>
+						<%= text_field_tag :q, "", class: 'search_text' %>
+						<%= submit_tag("Search", :class => "search_button") %>
+					<% end %>
+					</li>
+
 				</ul> 
 			</div><!-- navlinks  -->
 		</div><!-- nav container -->
