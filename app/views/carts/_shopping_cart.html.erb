@@ -13,6 +13,7 @@
         </div>
       <% end %>
     </div>
+    
     <!-- Notifications in case of empty cart -->
     <% if @order_items.size == 0 %>
       <p class="text-center">
@@ -20,11 +21,11 @@
       </p>
     
     <% else %>
-
     <!-- Listing shopping cart items -->
       <% @order_items.each do |order_item| %>
         <%= render 'cart_row', product: order_item.product, order_item: order_item, show_total: true %>
       <% end %>
     <% end %>
   </div> <!-- Row end -->
+
 </div> <!-- Container end -->

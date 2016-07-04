@@ -63,17 +63,20 @@
         <td><%= link_to "Continue Shopping", 'static_pages/shop', :class => "btn btn-warning" %></td>
 
           <td colspan="2" class="hidden-xs"></td>
-
           <!-- Total amount due -->
           <td class="hidden-xs text-center">
             <strong>Total: <%= number_to_currency current_order.total %></strong>
           </td>
-
           <!-- Payment! -->
           <td>
-            <a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a>
+            <%= form_tag "/payments/create" do %>
+              <%= render partial: "shared/stripe_checkout_button" %>
+            <% end %> 
           </td>
       </tr>
+
     </tfoot>
+
   </table>
+  
 </div>
