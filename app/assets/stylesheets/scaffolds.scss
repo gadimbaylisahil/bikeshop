@@ -91,7 +91,7 @@ div {
 }
 /*Products Index Stylings*/
 
-tbody *{
+tbody * {
   font-size: 16px;
 }
 
@@ -100,9 +100,10 @@ tbody *{
 }
 
 /*Edit From Stylings*/
-.product-nav{
+.product-nav {
   text-align: center;
 }
+
 .product-nav :hover{
   background: none;
 }
@@ -111,7 +112,7 @@ tbody *{
 
 .login_form,
 .sign_up_form,
-.forgot_form{
+.forgot_form {
   width: 100%;
   padding: 3%;
   margin: auto;

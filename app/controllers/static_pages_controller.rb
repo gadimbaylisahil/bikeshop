@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  
   def index
   	@products= Product.paginate(:page => params[:page], :per_page => 2)
   	@featured_product = Product.first
