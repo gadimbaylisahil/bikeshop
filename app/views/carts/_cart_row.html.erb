@@ -69,12 +69,7 @@
           </td>
           
           <!-- Payment! -->
-          <td>
-            <%= form_tag "/payments/create" do %>
-              <%= render partial: "shared/stripe_checkout_button" %>
-            <% end %> 
-          </td>
-
+          <td><%= link_to "Checkout", 'carts/checkout', :class => "btn btn-success" %></td>
       </tr>
     </tfoot>
 

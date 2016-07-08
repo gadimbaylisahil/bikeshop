@@ -1,0 +1,82 @@
+<div class="container" style="padding-top: 50px;">
+    <div class="row">
+        <div class="well col-xs-12 col-md-12 col-sm-12 col-lg-12">
+            
+            <!-- Upper side row for company and invoice info -->
+            <div class="row">
+            	<!-- Left side company info -->
+                
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <address style="font-size: 12px;">
+                        <strong>BikyLand</strong>
+                        <br>
+                        Carrer de Bailen 206
+                        <br>
+                        Barcelona, ES 08037
+                        <br>
+                        <abbr title="Phone">P:</abbr> (+34) 484-6829
+                    </address>
+                </div>
+                
+                <!-- Right side invoice info -->
+                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                    <p>
+                        <em>Date: <%= Time.zone.now %></em>
+                    </p>
+                    <p>
+                        <em>Receipt #: 000000000</em>
+                    </p>
+                    <p>
+                        <em>Invoice for: <%=current_user.email %></em>
+                    </p>
+                </div> 
+            </div>
+
+            <!-- Invoice items and payment -->
+            <div class="row">
+
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                </div>
+
+                <table class="table table-hover">
+                    
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Qnt</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">Total</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    	<!-- Listing receipt details -->
+                    	<% @order_items.each do |f| %>
+                        <tr>
+                            <td class="col-md-9"><em><%=f.product.name%></em></h4></td>
+                            <td class="col-md-1" style="text-align: center"> <%=f.quantity%> </td>
+                            <td class="col-md-1 text-center"><%=number_to_currency f.unit_price%></td>
+                            <td class="col-md-1 text-center"><%=number_to_currency f.total_price%></td>
+                        </tr>
+                        <% end %>
+
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong><%=number_to_currency current_order.total%></strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            	<!-- Pay Button -->
+            	<div class="text-center">
+            		<%= form_tag "/payments/create" do %>
+            		<%= render partial: "shared/stripe_checkout_button" %>
+            		<% end %> 
+     			</div>
+
+            </div>
+        </div>
+    </div>

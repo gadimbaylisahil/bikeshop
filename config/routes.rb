@@ -24,6 +24,8 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
+  get 'carts/checkout'
+
   devise_for :users, :controllers => { :registrations => "user_registrations" }
   resources :users
   
