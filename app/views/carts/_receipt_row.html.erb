@@ -27,7 +27,13 @@
                         <em>Receipt #: 000000000</em>
                     </p>
                     <p>
-                        <em>Invoice for: <%=current_user.email %></em>
+                        <em>Invoice for: 
+                        <% if signed_in? %>
+                        <%= current_user.email %>
+                        <% else %>
+                        <%= "Please log in for email confirmation" %>
+                        <% end %>
+                        </em>
                     </p>
                 </div> 
             </div>
