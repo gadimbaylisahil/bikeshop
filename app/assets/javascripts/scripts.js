@@ -13,3 +13,8 @@ $(document).on('ready page:load', function(){
     	}
     });
 });
+
+// Elevator zoom
+$(document).on('ready page:load', function(){
+	$('.img-zoom').elevateZoom();
+});
