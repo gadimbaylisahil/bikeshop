@@ -26,8 +26,7 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 					<p class="description">
-						<%= logger.debug "#{product.decription}" %>
-						<%= logger.debug "done debugging the product description" %>
+						<%= product.decription %>
 					</p>
 				</div>
 			</div>
@@ -157,7 +156,7 @@
 							NOTES COMING SOON
 						</div>
 
-						<div  class="tab-pane" role="tabpanel" id="<%=product.id%>reviews">
+						<div  class="tab-pane product-reviews" role="tabpanel" id="<%=product.id%>reviews">
 				
 							<% @comments.each do |comment| %>
 
