@@ -55,24 +55,7 @@
             
       </tr>
     </tbody>
-          
-    <tfoot>    
-      <tr>
-        <!-- Link to products page -->
-        <td><%= link_to "Continue Shopping", 'static_pages/shop', :class => "btn btn-warning" %></td>
-
-          <td colspan="2" class="hidden-xs"></td>
-          
-          <!-- Total amount due -->
-          <td class="hidden-xs text-center">
-            <strong>Total: <%= number_to_currency current_order.total %></strong>
-          </td>
-          
-          <!-- Payment! -->
-          <td><%= link_to "Checkout", 'carts/checkout', :class => "btn btn-success" %></td>
-      </tr>
-    </tfoot>
-
+    
   </table>
   
 </div>
