@@ -2,7 +2,7 @@
 	
 	<span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to 'EDIT PRODUCTS', "/products", :class => 'edit_products' %></span>
 
-	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/static_pages/orders", :class => 'checkout' %></span>
+	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/carts/show", :class => 'checkout' %></span>
 
 	<% @products.each do |product| %>
 	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
@@ -60,7 +60,12 @@
 								
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times</button>
+
+									<% if signed_in? %>
 									<h4 class="modal-title">Leave a review:</h4>
+									<% else %>
+									<h4 class="modal-title" style="color: red;">Please log in to leave a review.</h4>
+									<% end %>
 								</div>
 								
 								<div class="modal-body">
@@ -129,7 +134,7 @@
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
 					
 					<!-- Nav Tabs -->
-					<ul class="nav nav-tabs" role="tablist" >
+					<ul class="nav nav-tabs" role="tablist">
 
 						<li role="presentation" class="active">
 							<a href="#<%= product.id %>description" data-toggle="tab" role="tab">Description</a>
