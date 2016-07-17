@@ -11,9 +11,8 @@ class PaymentsController < ApplicationController
 		:source => token,
 		:description => params[:stripeEmail]
 		)
-
 		if charge.paid 
-			Order.create(total: current_order.total)
+			session[:order_id] = nil
 			#clear order_items after payment
 			@order = current_order
 			@order.order_items.each do |order_item|

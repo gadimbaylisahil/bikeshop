@@ -26,6 +26,10 @@ Rails.application.routes.draw do
 
   get 'carts/checkout'
 
+  get 'orders/index'
+
+  post 'orders/index'
+
   devise_for :users, :controllers => { :registrations => "user_registrations" }
   resources :users
   
@@ -38,6 +42,8 @@ Rails.application.routes.draw do
   resource :cart, only: [:show]
 
   resources :order_items, only: [:create, :update, :destroy]
+
+  resources :orders, only: [:index, :show, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
