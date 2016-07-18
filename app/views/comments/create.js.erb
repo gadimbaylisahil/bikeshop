@@ -8,6 +8,6 @@ $('.rated').raty({ path: '/assets',
 
 $('.new_comment').html("Thank you for your review on the product!");
 
-$('#<%=product.id%>reviews').prepend("<%= j render @comment %>");
+$('.product-reviews').prepend("<%= j render @comment %>");
 
-$('#commentModal<%=product.id%>').modal('hide');
+$('.review-modal').modal('hide');
