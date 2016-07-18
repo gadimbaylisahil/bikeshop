@@ -1,9 +1,10 @@
+
 <div class="container-fluid" id="shop">
-	
+
 	<span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to 'EDIT PRODUCTS', "/products", :class => 'edit_products' %></span>
 
 	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/carts/show", :class => 'checkout' %></span>
-
+	
 	<% @products.each do |product| %>
 	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
 	
@@ -21,7 +22,8 @@
 					<p style="font-size: 24px;"><%=product.name%></p>
 				</div>
 			</div> 
-
+			
+			
 			<!-- Description -->
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -30,7 +32,7 @@
 					</p>
 				</div>
 			</div>
-
+			
 			<!-- Rating -->
 			<div class="row">
 				

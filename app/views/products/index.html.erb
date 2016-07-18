@@ -27,10 +27,11 @@
             <th colspan="3"></th>
           </tr>
         </thead>
-        
+        <% cache(cache_key_for_products) do %>
         <!-- Table contents -->
         <tbody>
           <% @products.each do |product| %>
+          <% cache product do %>
             <tr>
               <td><%= product.name %></td>
               <td><%= product.decription %></td>
@@ -57,7 +58,9 @@
               <td><%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'glyphicon glyphicon-remove', :style => 'background: none;'  %></td>
             
             </tr>
-          <% end %>
+          <% end %> <!-- second level cache ends -->
+        <% end %> <!-- Each iteration ends -->
+        <% end %> <!-- caching ends -->  
 
         </tbody>
       </table>

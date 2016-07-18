@@ -71,3 +71,5 @@ gem 'stripe'
 
 gem 'angularjs-rails'
 
+gem 'dalli'
+

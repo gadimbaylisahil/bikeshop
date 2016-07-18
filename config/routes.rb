@@ -28,8 +28,6 @@ Rails.application.routes.draw do
 
   get 'orders/index'
 
-  post 'orders/index'
-
   devise_for :users, :controllers => { :registrations => "user_registrations" }
   resources :users
   
