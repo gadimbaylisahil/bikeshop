@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   add_flash_types :success
   
   def current_order
-    if !session[:order_id].nil? 
-      Order.find(session[:order_id])
-    else
-      Order.new
-    end
+      if !session[:order_id].nil? 
+        Order.find(session[:order_id])
+      else
+        Order.new
+      end
   end
 
   #redirecting users to landing page / access denial 
