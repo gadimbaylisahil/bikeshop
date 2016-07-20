@@ -15,7 +15,7 @@ body * {
 }
 
 .navbar-custom {
-	background: rgba(0, 0, 0, 0.9);
+	background: #25283D;
 	padding: 0;
 }
 
@@ -148,6 +148,7 @@ header {
 
 .modal {
 	text-align: center;
+	background-color: #EF767A;
 }
 
 /*Orders page styles*/
@@ -155,6 +156,7 @@ header {
 #orders {
 	padding-left: 10px;
 	padding-right: 10px;
+	background-color: #B5446E;
 }
 
 .continue {
@@ -176,11 +178,11 @@ header {
 	height: 670px;
 	padding-left: 10px;
 	padding-right: 10px;
-	background-color: #45B29D;
+	background-color: #4281A4;
 }
 
 #contact .row { 
-	background-color: #45B29D;
+	background-color: #4281A4;
 }
 
 address { 
@@ -197,7 +199,7 @@ address {
 /*Footer Styling */
 
 .footer-distributed {
-	background-color: #292c2f;
+	background-color: #25283D;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
