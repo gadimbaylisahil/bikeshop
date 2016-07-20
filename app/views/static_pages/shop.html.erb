@@ -6,8 +6,9 @@
 	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/carts/show", :class => 'checkout' %></span>
 	
 	<% @products.each do |product| %>
+	<% @productId = product.id %>
 	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
-	
+		<% @product_id_js = product.id %>
 		<!-- Product Image -->
 		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
 			<%= image_tag(product.image_url, :class => "img-responsive img-zoom", :data_zoom_image => "#{product.image_url}") %>
@@ -55,7 +56,7 @@
 					<%end%>
 
 					<!-- Comment Modal Content/Add review -->
-					<div class="modal fade review-modal" id="commentModal<%=product.id%>" role="dialog">
+					<div class="modal fade <%=product.id%>review-modal" id="commentModal<%=product.id%>" role="dialog">
 						<div class="modal-dialog">
 							
 							<div class="modal-content">
@@ -70,10 +71,10 @@
 									<% end %>
 								</div>
 								
-								<div class="modal-body">
+								<div class="modal-body <%=product.id%>comment-modal">
 									<% if signed_in? %>
   										<h4>Add a review:</h4>
- 										<%= form_for([product, product.comments.build], remote: true) do |f| %>
+ 										<%= form_for([product, product.comments.build], remote: true , :html => { :id => "new-comment#{product.id}" }) do |f| %>
 										    <p>
 										      <%= f.label :title, "Title" %><br>
 										      <%= f.text_area :title, :required => true %>
@@ -163,7 +164,7 @@
 							NOTES COMING SOON
 						</div>
 
-						<div  class="tab-pane product-reviews" role="tabpanel" id="reviews<%=product.id%>">
+						<div  class="tab-pane <%=product.id%>product-reviews" role="tabpanel" id="<%=product.id%>reviews">
 				
 							<% @comments.each do |comment| %>
 

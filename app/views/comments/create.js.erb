@@ -6,8 +6,11 @@ $('.rated').raty({ path: '/assets',
   }
 });
 
-$('.new_comment').html("Thank you for your review on the product!");
 
-$('.product-reviews').prepend("<%= j render @comment %>");
 
-$('.review-modal').modal('hide');
+$('#new-comment<%=@product.id%>').html("Thank you for your review on the product!");
+
+$('.<%=@product.id%>product-reviews').prepend("<%= j render @comment %>");
+
+$('.<%=@product.id%>review-modal').modal('hide');
+
