@@ -6,5 +6,5 @@ class Comment < ActiveRecord::Base
   validates :rating, numericality: { only_integer: true, greater_than_or_equal_to: 1 }	 
   
   belongs_to :user
-  belongs_to :product, dependent: :destroy
+  belongs_to :product
 end

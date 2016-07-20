@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	has_many :comments
+	has_many :comments, dependent: :destroy
 	has_many :order_items
 
 	validates :name, presence: true, length: { in: 6..30 }
