@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623023116) do
+ActiveRecord::Schema.define(version: 20160720155058) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -46,13 +46,8 @@ ActiveRecord::Schema.define(version: 20160623023116) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.float    "total"
-    t.datetime "order_date"
-    t.integer  "order_status_id"
-  end
-
-  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+# Could not dump table "orders" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

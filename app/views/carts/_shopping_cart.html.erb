@@ -17,7 +17,7 @@
     <!-- Notifications in case of empty cart -->
     <% if @order_items.size == 0 %>
       <p class="text-center">
-        There are no items in your shopping cart.  Please <%= link_to "go back", 'static_pages/shop' %> and add some items to your cart.
+        There are no items in your shopping cart.  Please <%= link_to "go back", static_pages_shop_path %> and add some items to your cart.
       </p>
     
     <% else %>
