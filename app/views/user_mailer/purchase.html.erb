@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  	<title>Thank you for you message!</title>
+  	<title>Order confirmation!</title>
   	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
@@ -26,11 +26,11 @@
 				<table border="0" cellpadding="0" cellspacing="0" width="100%">
 					<tr>
 						<td style="display: block; color: #153643; font-family: 'Source Sans Pro', sans-serif; font-size: 24px; border-bottom: solid;">
-							<b>You have a new message from <%= @name %> </b>
+							<b> Your order confirmation! </b>
 						</td>
 
 						<td style="color: #153643; font-family: 'Source Sans Pro', sans-serif; font-size: 16px; line-height: 20px; display: block;">
-							<p> <%= @message %> </p>
+							<p> Dear <%= @name %> , thank you for your recent payment on your order. Your order reference is biky_<%= @purchase_order_id %>. </p>
 						</td>
 
 					</tr>

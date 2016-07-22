@@ -17,4 +17,13 @@ class UserMailer < ApplicationMailer
 				:to => user.email,
 				:subject => "Welcome to #{@appname}!")
 	end
+
+	def purchase(name, purchase_order_id, email)
+		@name = name
+		@purchase_order_id = purchase_order_id
+		mail(
+			:from => 'gadimbayli.sahil@gmail.com',
+			:to => email,
+			:subject => "Payment confirmation!")
+	end
 end
