@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   protect_from_forgery
   skip_before_action :verify_authenticity_token, if: :json_request?
   respond_to :json, :html
-
   def index
     @orders = Order.all.to_json(:include => [{:user => {:only => :email}}])
     respond_with @orders
@@ -36,6 +35,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:total)
+    params.require(:order).permit(:total, :user_id)
   end
 end
