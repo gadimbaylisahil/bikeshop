@@ -1,3 +1,9 @@
+$('#new-comment<%=@product.id%>').html("Thank you for your review on the product!");
+
+$('.<%=@product.id%>product-reviews').prepend("<%= j render @comment %>");
+
+$('.<%=@product.id%>review-modal').modal('hide');
+
 $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' });
 $('.rated').raty({ path: '/assets',
   readOnly: true,
@@ -5,12 +11,3 @@ $('.rated').raty({ path: '/assets',
     return $(this).attr('data-score');
   }
 });
-
-
-
-$('#new-comment<%=@product.id%>').html("Thank you for your review on the product!");
-
-$('.<%=@product.id%>product-reviews').prepend("<%= j render @comment %>");
-
-$('.<%=@product.id%>review-modal').modal('hide');
-

@@ -10,6 +10,14 @@ window.setTimeout(function() {
     });
 }, 2500);
 
+//Alert fade out 2,5 seconds
+window.setTimeout(function() {
+    $(".notice").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 2500);
+
+
 // product ratings
 $(document).on('ready page:load', function(){
     $('.rating').raty( { path: '/assets', scoreName: 'comment[rating]' });
