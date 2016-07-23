@@ -12,6 +12,8 @@ class PaymentsController < ApplicationController
 			:description => params[:stripeEmail]
 			)
 			if charge.paid
+				#assign userID to the purchased order ID
+				current_order.update(:total => current_order.total, :user_id => current_user.id)
 				#kill current order's session 
 				session[:order_id] = nil
 
