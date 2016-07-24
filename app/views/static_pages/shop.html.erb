@@ -1,208 +1,245 @@
-
 <div class="container-fluid" id="shop">
-
+	
 	<span class="glyphicon glyphicon-edit" aria-hidden="true"><%= link_to 'EDIT PRODUCTS', "/products", :class => 'edit_products' %></span>
 
 	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"><%= link_to 'CHECKOUT', "/carts/show", :class => 'checkout' %></span>
 	
 	<% @products.each do |product| %>
-	<% @productId = product.id %>
-	<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
-		<% @product_id_js = product.id %>
-		<!-- Product Image -->
-		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
-			<%= image_tag(product.image_url, :class => "img-responsive img-zoom", :data_zoom_image => "#{product.image_url}") %>
-		</div>
-
-		<!-- Product Information -->
-		<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
-
-			<!-- Name -->
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-					<p style="font-size: 24px;"><%=product.name%></p>
-				</div>
-			</div> 
+		
+		<% @productId = product.id %>
+		
+		<div class="row col-sm-12 col-xs-12 col-md-12 col-lg-12 item-row">
+			<% @product_id_js = product.id %>
 			
-			
-			<!-- Description -->
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-					<p class="description">
-						<%= product.decription %>
-					</p>
-				</div>
+			<!-- Product Image -->
+			<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
+				<%= image_tag(product.image_url, :class => "img-responsive img-zoom", :data_zoom_image => "#{product.image_url}") %>
 			</div>
-			
-			<!-- Rating -->
-			<div class="row">
+
+			<!-- Product Information -->
+			<div class="col-md-6 col-lg-6  col-sm-12 col-xs-12">
+
+				<!-- Name -->
+				<div class="row">
+					
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+						<p style="font-size: 24px;"><%=product.name%></p>	
+					</div>
 				
-				<div class="col-md-6">
-					<div class="rated" data-score="<%= product.average_rating %>"> </div>
-  					<span class="label label-success"><%= product.comments.size %></span>
-				</div>
-
-				<!-- Leave a review button -->
-				<div class="col-md-12">
-					
-					<% if user_signed_in? %>
-					
-					<span class="glyphicon glyphicon-pencil btn btn-xs btn-primary" data-toggle="modal" data-target="#commentModal<%=product.id%>" style="font-size: 14px;">Review</span>
-					
-					<% else %>
-
-					<span class="glyphicon glyphicon-pencil btn btn-xs btn-primary disabled" rel="tooltip" data-title="Please log-in to leave a review" data-toggle="modal" data-target="#commentModal<%=product.id%>" style="font-size: 14px;">Review</span>
-					
-					<%end%>
-
-					<!-- Comment Modal Content/Add review -->
-					<div class="modal fade <%=product.id%>review-modal" id="commentModal<%=product.id%>" role="dialog">
-						<div class="modal-dialog">
-							
-							<div class="modal-content">
-								
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times</button>
-
-									<% if signed_in? %>
-									<h4 class="modal-title">Leave a review:</h4>
-									<% else %>
-									<h4 class="modal-title" style="color: red;">Please log in to leave a review.</h4>
-									<% end %>
-								</div>
-								
-								<div class="modal-body <%=product.id%>comment-modal">
-									<% if signed_in? %>
-  										<h4>Add a review:</h4>
- 										<%= form_for([product, product.comments.build], remote: true , :html => { :id => "new-comment#{product.id}" }) do |f| %>
-										    <p>
-										      <%= f.label :title, "Title" %><br>
-										      <%= f.text_area :title, :required => true %>
-										    </p>
-										    <p>
-										      <%= f.label :body, "Comments" %><br>
-										      <%= f.text_area :body, :required => true %>
-										    </p>
-										    <p>
-										      <%= f.label :rating %><br>
-										      <div class="rating"></div>
-										    </p>  
-										    <p>
-										      <%= f.submit 'Submit', :class => "btn btn-primary" %>
-										    </p>
-									  <% end %>
-									<% end %>
-								</div>
-
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								</div>
-							
-							</div><!--Modal content end -->
-						</div>
-					</div> <!--Comment Modal end -->
-
-				</div><!-- review button end -->
-			</div> <!-- Rating end -->
-
-			<!-- Price -->
-			<div class="row">
-				<div class="bottom-rule col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
-					<h2 style="border-bottom: dotted;"><%= product.price %>£</h2>
-				</div>
-			</div>
-
-			<!-- Add to cart button -->
-			<div class="row">
+				</div> 
 				
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					
-					<!-- Product gets added to order_item table -->
-					<%= form_for @order_item, remote: true do |f| %>
-						
-						<%= f.number_field :quantity, value: 1, class: "btn btn-info btn-lg btn-qty", min: 1 %>
-						
-						<%= f.hidden_field :product_id, value: product.id %>
+				<!-- Description -->
+				<div class="row">
 
-						<%= f.submit "Add to Cart", class: 'btn btn-lg btn-brand btn-full-width',:onclick => "history.go(0)" %>
-					
-					<% end %>
-
-				</div>
-			</div>
-
-			<br>
-			<!--Product Nav Tabs -->
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-					
-					<!-- Nav Tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-
-						<li role="presentation" class="active">
-							<a href="#<%= product.id %>description" data-toggle="tab" role="tab">Description</a>
-						</li>
-						
-						<li role="presentation">
-							<a href="#<%= product.id %>notes" data-toggle="tab" role="tab">Notes</a>
-						</li>
-						
-						<li role="presentation">
-							<a href="#<%= product.id %>reviews" data-toggle="tab" role="tab">Reviews</a>
-						</li>
-
-					</ul>
-
-					<!-- Product Tab Panes -->
-					<div class="tab-content">
-
-						<div  class="tab-pane active" role="tabpanel" id="<%=product.id%>description">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				
+						<p class="description">
 							<%= product.decription %>
-						</div>
-
-						<div  class="tab-pane" role="tabpanel" id="<%=product.id%>notes">
-							NOTES COMING SOON
-						</div>
-
-						<div  class="tab-pane <%=product.id%>product-reviews" role="tabpanel" id="<%=product.id%>reviews">
+						</p>
 				
-							<% @comments.each do |comment| %>
-							<% if comment.product.id == product.id %>
+					</div>
+				
+				</div>
+				
+				<!-- Rating -->
+				<div class="row">
+					
+					<div class="col-md-6">
+
+						<div class="rated" data-score="<%= product.average_rating %>"> </div>
+	  				
+	  					<span class="label label-success"><%= product.comments.size %></span>
+					
+					</div>
+
+					<!-- Leave a review button -->
+					<div class="col-md-12">
+						
+						<% if user_signed_in? %>
+						
+							<span class="glyphicon glyphicon-pencil btn btn-xs btn-primary" data-toggle="modal" data-target="#commentModal<%=product.id%>" style="font-size: 14px;">Review</span>
+						
+						<% else %>
+
+							<span class="glyphicon glyphicon-pencil btn btn-xs btn-primary disabled" rel="tooltip" data-title="Please log-in to leave a review" data-toggle="modal" data-target="#commentModal<%=product.id%>" style="font-size: 14px;">Review</span>
+						
+						<%end%>
+
+						<!-- Comment Modal Content/Add review -->
+						<div class="modal fade <%=product.id%>review-modal" id="commentModal<%=product.id%>" role="dialog">
+							
+							<div class="modal-dialog">
 								
-								<div class="row">
-									<hr>		
-									<p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
+								<div class="modal-content">
+									
+									<div class="modal-header">
 										
-									<!-- Admins access to comments -->
-									<% if signed_in? && current_user.admin? %>	
-										
-										<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, comment, method: :delete, data: { confirm: 'Are you sure?' } %>	
-										
-									<% end %>
+										<button type="button" class="close" data-dismiss="modal">&times</button>
 
-									<p style="font-size: 16px; color: red;"><%= comment.title %></p>
-									<div class="rated" data-score="<%= comment.rating %>">
+										<% if signed_in? %>
+											
+											<h4 class="modal-title">Leave a review:</h4>
+										
+										<% else %>
+											
+											<h4 class="modal-title" style="color: red;">Please log in to leave a review.</h4>
+										
+										<% end %>
+									
+									</div> <!-- modal-header end -->
+									
+									<div class="modal-body <%=product.id%>comment-modal">
+										
+										<% if signed_in? %>
+	  										
+	  										<h4>Add a review:</h4>
+	 										
+	 										<%= form_for([product, product.comments.build], remote: true , :html => { :id => "new-comment#{product.id}" }) do |f| %>
+											    <p>
+											      <%= f.label :title, "Title" %><br>
+											      <%= f.text_area :title, :required => true %>
+											    </p>
+											    
+											    <p>
+											      <%= f.label :body, "Comments" %><br>
+											      <%= f.text_area :body, :required => true %>
+											    </p>
+											    
+											    <p>
+											      <%= f.label :rating %><br>
+											      <div class="rating"></div>
+											    </p>  
+											    
+											    <p>
+											      <%= f.submit 'Submit', :class => "btn btn-primary" %>
+											    </p>
+
+											<% end %> <!-- form_for product end -->
+										<% end %> <!-- if signed_in end -->
+
+									</div> <!-- modal-body end -->
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 									</div>
-									<p><%= comment.body %></p>
-								</div>
+								
+								</div><!--moadal-content end -->
 
-							<% end %> <!-- IF condition end -->
-							<% end %> <!-- Loop end -->
+							</div> <!-- modal-dialog end -->
 
-						</div><!-- Review tab end -->
+						</div> <!--comment modal end -->
 
-					</div> <!-- Tab Contents end-->
+					</div><!-- review button end -->
+
+				</div> <!-- rating end -->
+
+				<!-- Price -->
+				<div class="row">
+					
+					<div class="bottom-rule col-md-12 col-sm-12 col-lg-12 col-xs-12 ">
+						<h2 style="border-bottom: dotted;"><%= product.price %>£</h2>
+					</div>
 				
-				</div><!-- Nav Grid end-->
+				</div>
 
-			</div> <!--Nav Row end -->
+				<!-- Add to cart button -->
+				<div class="row">
+					
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						
+						<!-- Product gets added to order_item table -->
+						<%= form_for @order_item, remote: true do |f| %>
+							
+							<%= f.number_field :quantity, value: 1, class: "btn btn-info btn-lg btn-qty", min: 1 %>
+							
+							<%= f.hidden_field :product_id, value: product.id %>
 
-		</div> <!-- Product Info end -->
+							<%= f.submit "Add to Cart", class: 'btn btn-lg btn-brand btn-full-width',:onclick => "history.go(0)" %>
+						
+						<% end %> 
 
-	</div> <!-- Main Row end -->
+					</div>
+				</div>
+
+				<br>
+				<!--Product Nav Tabs -->
+				<div class="row">
+					
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+						
+						<!-- Nav Tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+
+							<li role="presentation" class="active">
+								<a href="#<%= product.id %>description" data-toggle="tab" role="tab">Description</a>
+							</li>
+							
+							<li role="presentation">
+								<a href="#<%= product.id %>notes" data-toggle="tab" role="tab">Notes</a>
+							</li>
+							
+							<li role="presentation">
+								<a href="#<%= product.id %>reviews" data-toggle="tab" role="tab">Reviews</a>
+							</li>
+
+						</ul>
+
+						<!-- Product Tab Panes -->
+						<div class="tab-content">
+
+							<div  class="tab-pane active" role="tabpanel" id="<%=product.id%>description">
+								<%= product.decription %>
+							</div>
+
+							<div  class="tab-pane" role="tabpanel" id="<%=product.id%>notes">
+								NOTES COMING SOON
+							</div>
+
+							<div  class="tab-pane <%=product.id%>product-reviews" role="tabpanel" id="<%=product.id%>reviews">
+					
+								<% @comments.each do |comment| %>
+									<% if comment.product.id == product.id %>
+									
+										<div class="row">
+											<hr>		
+											<p><%= comment.user.first_name %> <small><em><%= "#{time_ago_in_words(comment.created_at)} ago" %></em></small></p>
+												
+											<!-- Admins access to comments -->
+											<% if signed_in? && current_user.admin? %>	
+												
+												<%= link_to ('<span class="glyphicon glyphicon-remove"></span>').html_safe, comment, method: :delete, data: { confirm: 'Are you sure?' } %>	
+												
+											<% end %>
+
+											<p style="font-size: 16px; color: red;"><%= comment.title %></p>
+											
+											<div class="rated" data-score="<%= comment.rating %>">
+											</div>
+											
+											<p><%= comment.body %></p>
+
+										</div>
+
+									<% end %> <!-- if condition end -->
+
+								<% end %> <!-- comment.each iteration end -->
+
+							</div><!-- review tab end -->
+
+						</div> <!-- tab contents end-->
+					
+					</div><!-- nav grid end-->
+
+				</div> <!--nav row end -->
+
+			</div> <!-- product info end -->
+
+		</div> <!-- Main Row end -->
 
 	<% end %> <!-- Products Loop end -->
-</div>
+	
+</div> <!-- main container end -->
+
 <!-- Product Pagination -->
 <div class="products-paginate" style="text-align: center; background-color: #A0DBD7;">
 	<%= will_paginate @products %>

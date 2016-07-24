@@ -1,57 +1,68 @@
 <div class="row" style="margin-left: 5px; margin-right: 5px;">
 
   <%= form_for @product, :html => {:class => "edit_form"} do |f| %>
+    
     <% if @product.errors.any? %>
+    
       <div id="error_explanation">
+    
         <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+    
         <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+          <% @product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
         </ul>
-      </div>
-    <% end %>
+    
+      </div> <!-- error_explanation end -->
+    
+    <% end %> <!-- if condition end -->
 
   
-  <h1>Product</h1>
-  <div class="panel panel-primary filterable">
+    <h1>Product</h1>
     
-    <div class="panel-heading">
-      <h2 class="panel-title">Product No: <%=@product.id%></h2>
+    <div class="panel panel-primary filterable">
+    
+      <div class="panel-heading">
+        <h2 class="panel-title">Product No: <%=@product.id%></h2>
+      </div>
 
-    </div>
+      <div class="table-responsive">
 
-    <div class="table-responsive">
-      <!-- Table columns -->
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr class="filters">
-            <th>Name</th>
-            <th>Description</th>
-            <th>Image Url</th>
-            <th>Condition: New?</th>
-            <th>Price</th>
-            <th>Colour</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        
-        <!-- Table contents -->
-        <tbody>
-            <tr>
-              <td><%= f.text_field :name, :class => "edit_entry", :required => true %></td>
-              <td><%= f.text_area :decription, :class => "edit_entry", :required => true %></td>
-              <td><%= f.text_field :image_url, :class => "edit_entry", :required => true %></td>
-              <td><%= f.check_box :brand_new, :class => "edit_entry"%></td>
-              <td><%= f.number_field :price, :class => "edit_entry", :required => true %></td>
-              <td><%= f.text_field :colour, :class => "edit_entry", :required => true %></td>
-              <td><%= f.submit :class => "btn btn-primary" %></td>
+        <!-- Table columns -->
+        <table class="table table-bordered table-hover">
+
+          <thead>
+            <tr class="filters">
+              <th>Name</th>
+              <th>Description</th>
+              <th>Image Url</th>
+              <th>Condition: New?</th>
+              <th>Price</th>
+              <th>Colour</th>
+              <th colspan="3"></th>
             </tr>
-        </tbody>
+          </thead>
+        
+          <!-- Table contents -->
+          <tbody>
+              <tr>
+                <td><%= f.text_field :name, :class => "edit_entry", :required => true %></td>
+                <td><%= f.text_area :decription, :class => "edit_entry", :required => true %></td>
+                <td><%= f.text_field :image_url, :class => "edit_entry", :required => true %></td>
+                <td><%= f.check_box :brand_new, :class => "edit_entry"%></td>
+                <td><%= f.number_field :price, :class => "edit_entry", :required => true %></td>
+                <td><%= f.text_field :colour, :class => "edit_entry", :required => true %></td>
+                <td><%= f.submit :class => "btn btn-primary" %></td>
+              </tr>
+          </tbody>
 
-      </table>
-    </div> <!-- table responsive -->
-  </div> <!-- panel -->
-  <% end %>
+        </table>
 
-</div>
+      </div> <!-- table responsive end -->
+
+    </div> <!-- panel end -->
+  
+  <% end %> <!-- form_for ends -->
+
+</div> <!-- main row ends -->

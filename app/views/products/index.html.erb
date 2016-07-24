@@ -6,13 +6,17 @@
     <div class="panel-heading">
 
       <h2 class="panel-title">Products</h2>
+      
       <div class="pull-right">
         <%= link_to 'Add', new_product_path, :class => 'btn btn-default btn-sm glyphicon glyphicon-plus-sign' %>
       </div>
-    </div>
+
+    </div> <!-- panel heading end -->
+    
     <!-- Table columns -->
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
+
         <thead>
           <tr class="filters">
             <th>Name</th>
@@ -27,45 +31,49 @@
             <th colspan="3"></th>
           </tr>
         </thead>
+
         <% cache(cache_key_for_products) do %>
-        <!-- Table contents -->
-        <tbody>
-          <% @products.each do |product| %>
-          <% cache product do %>
-            <tr>
-              <td><%= product.name %></td>
-              <td><%= product.decription %></td>
-              <td><%= product.image_url %></td>
 
-              <% if (product.brand_new == true) %>
-                <td style="color: green;"><%= "Yes" %></td>
-              <% end %>
-              
-              <% if (product.brand_new == false) %>
-                <td style="color: red;"><%= "No" %></td>
-              <% end %>
-              
-              <td><%= product.price %></td>
-              <td><%= product.colour %></td>
+          <!-- Table contents -->
+          <tbody>
+            <% @products.each do |product| %>
+              <% cache product do %>
+                <tr>
+                  <td><%= product.name %></td>
+                  <td><%= product.decription %></td>
+                  <td><%= product.image_url %></td>
 
-              <!-- link to product information -->
-              <td><%= link_to '', product, :class => 'glyphicon glyphicon-info-sign', :style => 'background: none;'  %></td>
+                  <% if (product.brand_new == true) %>
+                    <td style="color: green;"><%= "Yes" %></td>
+                  <% end %>
+                  
+                  <% if (product.brand_new == false) %>
+                    <td style="color: red;"><%= "No" %></td>
+                  <% end %>
+                  
+                  <td><%= product.price %></td>
+                  <td><%= product.colour %></td>
 
-              <!-- link to product editing -->
-              <td><%= link_to '', edit_product_path(product), :class => 'glyphicon glyphicon-edit', :style => 'background: none;' %></td>
+                  <!-- link to product information -->
+                  <td><%= link_to '', product, :class => 'glyphicon glyphicon-info-sign', :style => 'background: none;'  %></td>
 
-              <!-- link to product removal -->
-              <td><%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'glyphicon glyphicon-remove', :style => 'background: none;'  %></td>
-            
-            </tr>
-          <% end %> <!-- second level cache ends -->
-        <% end %> <!-- Each iteration ends -->
-        <% end %> <!-- caching ends -->  
+                  <!-- link to product editing -->
+                  <td><%= link_to '', edit_product_path(product), :class => 'glyphicon glyphicon-edit', :style => 'background: none;' %></td>
 
-        </tbody>
+                  <!-- link to product removal -->
+                  <td><%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'glyphicon glyphicon-remove', :style => 'background: none;'  %></td>
+                </tr>
+
+              <% end %> <!-- second level cache ends -->
+            <% end %> <!-- Each iteration ends --> 
+          </tbody>
+
+        <% end %> <!-- caching ends -->
       </table>
-    </div>
 
-  </div>
-</div>
+    </div> <!-- table responsive end -->
+
+  </div> <!-- panel end -->
+
+</div> <!-- main row end -->
 
