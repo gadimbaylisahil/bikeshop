@@ -1,7 +1,53 @@
-<section id="orders">
-	
-	<div class="row">
-		<%= link_to 'Continue shopping', "/static_pages/shop", :class => 'continue' %>
-	</div>
-	
-</section>
+<div class="row" style="margin-left:5px; margin-right:5px;" id="orders">
+
+  <% if user_signed_in? %>
+
+	  <h1>Your recent orders:</h1>
+
+	  <div class="panel panel-primary filterable">
+
+		<% @orders.each do |order| %>
+
+			<% if order.user_id == current_user.id %>
+
+			    <div class="panel-heading">
+			      <h2 class="panel-title">Order Reference No: <%=order.id%></h2>
+			    </div>
+			    
+			    <div class="table-responsive">
+			      <!-- Table columns -->
+			      <table class="table table-bordered table-hover">
+
+			        <thead>
+			          <tr class="filters">
+			            <strong><th>Total</th></strong>
+			            <strong><th>User ID</th></strong>
+			          </tr>
+			        </thead>
+
+			        <!-- Table contents -->
+			        <tbody>
+			            <tr>
+			              <td><%= number_to_currency order.total %></td>
+			              <td><%= order.user_id %></td>
+			            </tr>
+			        </tbody>
+
+			      </table>
+
+			    </div> <!-- table-responsive end -->
+
+			<% end %> <!-- if statement ends -->
+
+		<% end %> <!-- orders.each end -->
+
+	  </div> <!-- panel end -->
+
+	<!-- user_signed_in? condition -->
+	<% else %> 
+	  <h1>Please sign in to view your orders.</h1>
+	<% end %>
+
+</div> <!-- main row end -->
+
+
